@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon"
+        href="https://assets-global.website-files.com/5fb85f26f126ce08d792d2d9/607fb3f4411becf785a0d614_After_MBBAnk.png"
+        type="image/x-icon">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <H1>Tạo Mã QR</H1>
+            <select id="Ma_Bank"></select>
+            <form id="Form">
+                <div class="form-group">
+                    <label class="bank_no">Số Tài Khoản:</label>
+                    <input id="STK_Bank" type="text" placeholder="Số tài khoản..." oninput="formatInput(this,'stk')">
+                </div>
+                <div class="form-group">
+                    <label class="bank_no">Số Tiền Chuyển:</label>
+                    <input id="TIEN_Bank" type="text" placeholder="Số Tiền Chuyển..."
+                        oninput="formatInput(this,'tien')">
+                </div>
+                <div class="form-group">
+                    <label class="bank_no">Nội Dung:</label>
+                    <input id="ND_Bank" type="text" placeholder="Nội dung...">
+                </div>
+                <button type="submit" class="btn-creatqr">Creat QR code</button>
+            </form>
+        </div>
+        <i>abc</i>
+        <div id="test"></div>
+        <div class="wrapper_qr">
+            <img class="qr" src="" alt=''></img>
+        </div>
+    </div>
+    <script src="./javascript.js"></script>
+</body>
+
+</html>
