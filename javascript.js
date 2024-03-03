@@ -1,7 +1,3 @@
-
-
-
-
 async function List_Bank() {
     try {
         let url = "https://api.vietqr.io/v2/banks"
@@ -10,7 +6,8 @@ async function List_Bank() {
         let htmlString = '';
         data.forEach((bank, key) => {
             let name = bank.name.replace("Ngân hàng", '').replace("TMCP", '');
-            htmlString += `<option class="option${bank.code.toLowerCase()}" value=${bank.code} key=${key + 1}> ${bank.code} - ${name} </option>`;
+            name_par = name.length >= 50 ? name.slice(0, 50) + "..." : name;
+            htmlString += `<option class="option${bank.code.toLowerCase()}" value=${bank.code} key=${key + 1}> ${bank.code} - ${name_par} </option>`;
         });
         document.getElementById("Ma_Bank").innerHTML = htmlString
     } catch (er) {
@@ -28,12 +25,11 @@ document.getElementById("Form").addEventListener("submit", (e) => {
         if (!isEmpty(STK_Bank) && !isEmpty(TIEN_Bank)) {
             CreatQrCode(Ma_Bank, STK_Bank, TIEN_Bank.replace(/\./g, ''), ND_Bank, "is Name")
             document.querySelector(".wrapper_qr").style.display = "flex";
-            document.getElementById("Form").reset();
-            document.getElementById('STK_Bank').focus();
-            document.getElementById('test').innerHTML = ND_Bank;
         } else {
             alert("Không để trống?")
         }
+        document.getElementById("Form").reset();
+
     }
     catch (er) {
         alert(er)
