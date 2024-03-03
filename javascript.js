@@ -6,7 +6,7 @@ async function List_Bank() {
     try {
         let url = "https://api.vietqr.io/v2/banks"
         let res = await axios.get(url);
-        let data = res.data.data.slice(0, 10);
+        let data = res.data.data;
         let htmlString = '';
         data.forEach((bank, key) => {
             let name = bank.name.replace("Ngân hàng", '').replace("TMCP", '');
