@@ -1,3 +1,4 @@
+
 async function List_Bank() {
     try {
         let url = "https://api.vietqr.io/v2/banks"
@@ -15,6 +16,7 @@ async function List_Bank() {
     }
 }
 List_Bank();
+
 document.getElementById("Form").addEventListener("submit", (e) => {
     try {
         e.preventDefault();
@@ -38,7 +40,7 @@ document.getElementById("Form").addEventListener("submit", (e) => {
 })
 
 let wrapper_qr = document.querySelector(".wrapper_qr");
-let qr = document.querySelector(".qr");
+let qr = document.querySelector(".img_qr");
 wrapper_qr.addEventListener("click", (e) => {
     if (e.target === qr) {
         return;
@@ -54,7 +56,7 @@ function isEmpty(value) {
 
 
 function CreatQrCode(Ma_Bank, STK_Bank, TIEN_Bank, ND_Bank, Name) {
-    var qr = document.querySelector('.qr');
+    var qr = document.querySelector('.img_qr');
     qr.src = `https://img.vietqr.io/image/${Ma_Bank}-${STK_Bank}-compact2.png?amount=${TIEN_Bank}&addInfo=${ND_Bank}&accountName=${Name}`;
 
 }
